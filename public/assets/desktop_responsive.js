@@ -1,4 +1,4 @@
-import { Button, Dropdown, Input, Page, setOptions } from '@mobiscroll/react';
+import { Button, Dropdown, Input, Page, setOptions } from '@mobiscroll/react-lite';
 
 setOptions({
   theme: 'ios',
