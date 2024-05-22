@@ -87,8 +87,28 @@ p {
   font-style: italic;
 }
 
+.border-red {
+  border-color: $c-red !important;
+}
+
+.border-green {
+  border-color: $c-green !important;
+}
+
+.border-black {
+  border-color: $c-black !important;
+}
+
 .border-none {
   border: none !important;
+}
+
+.bg-grey {
+  background-color: $c-grey !important;
+}
+
+.bg-green {
+  background-color: $c-green !important;
 }
 
 .r-0 {

@@ -56,7 +56,6 @@
             width: 40%;
             border: none;
             border-radius: 5px;
-            background-color: $c-grey;
             color: $c-white;
             padding: 10px 0px;
         }
@@ -94,7 +93,6 @@
                 color: $c-white;
                 border: none;
                 border-radius: 20px;
-                background-color: $c-grey;
             }
 
             & .dropdown-menus {
@@ -129,6 +127,7 @@
             border: none;
             outline: none;
             line-height: 1.5rem;
+            resize: none;
             background:
                 repeating-linear-gradient(to right , transparent 0 5px, white 0 8px),
                 repeating-linear-gradient(to bottom, transparent 0 calc(1.5em - 2px), $c-lightgrey 0 1.5em) transparent;
@@ -137,17 +136,5 @@
                 color: $c-grey;
             }
         }
-    }
-
-    & .border-red {
-        border-color: $c-red !important;
-    }
-
-    & .border-green {
-        border-color: $c-green !important;
-    }
-
-    & .border-black {
-        border-color: $c-black !important;
     }
 }
