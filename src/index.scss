@@ -7,8 +7,34 @@ body {
   font-weight: 400 !important;
 }
 
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .fc-primary {
   color: $c-primary;
+}
+.fc-red {
+  color: $c-red;
+}
+.fc-lightgrey {
+  color: $c-lightgrey;
+}
+.fc-grey {
+  color: $c-grey;
+}
+.fc-darkgrey {
+  color: $c-darkgrey;
+}
+.fc-black {
+  color: $c-black;
+}
+.fc-green {
+  color: $c-green;
+}
+.fc-white {
+  color: $c-white;
 }
 
 .f-thin {
@@ -59,4 +85,12 @@ body {
 .f-black-italic {
   font-weight: 900;
   font-style: italic;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.r-0 {
+  right: 0 !important;
 }
