@@ -1,11 +1,13 @@
 import React, {useState} from "react"
+import { useLocation } from "react-router-dom"
 import "./style.scss"
 
 const Navbar = () => {
     const [isNavOpen, setNavOpen] = useState(false)
+    const location = useLocation()
 
     return (
-        <div className="mnavbar">
+        <div className={"mnavbar" + (location.pathname==="/" ? " d-none" : "")}>
             <div className={"toggle-menu" + (isNavOpen ? " expand" : "")}>
                 <div className="toggle-icon" onClick={() => setNavOpen(!isNavOpen)}>
                   <div></div>

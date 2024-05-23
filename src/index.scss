@@ -99,6 +99,10 @@ p {
   border-color: $c-black !important;
 }
 
+.border-darkgrey {
+  border-color: $c-darkgrey !important;
+}
+
 .border-none {
   border: none !important;
 }
@@ -111,6 +115,14 @@ p {
   background-color: $c-green !important;
 }
 
+.bg-prim {
+  background-color: $c-primary !important;
+}
+
 .r-0 {
   right: 0 !important;
+}
+
+.w-20 {
+  width: 20% !important;
 }

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/home";
 import CreateNewPage from "./pages/create_new";
+import SearchPage from "pages/search";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/createnew" element={<CreateNewPage />}></Route>
+            <Route path="/search" element={<SearchPage />}></Route>
           </Routes>
           <Footer />
         </Router>
