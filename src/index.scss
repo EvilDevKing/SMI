@@ -107,6 +107,11 @@ p {
   border: none !important;
 }
 
+.dash-border {
+  padding: 5px;
+  border: 1px dashed $c-grey;
+}
+
 .bg-grey {
   background-color: $c-grey !important;
 }
@@ -125,4 +130,16 @@ p {
 
 .w-20 {
   width: 20% !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
 }

@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/home";
 import CreateNewPage from "./pages/create_new";
 import SearchPage from "pages/search";
+import SearchResultPage from "pages/search/result";
+import CreateReportPage from "pages/create_report";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/createnew" element={<CreateNewPage />}></Route>
             <Route path="/search" element={<SearchPage />}></Route>
+            <Route path="/searchresult" element={<SearchResultPage />}></Route>
+            <Route path="/createreport" element={<CreateReportPage />}></Route>
           </Routes>
           <Footer />
         </Router>

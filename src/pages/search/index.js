@@ -194,7 +194,7 @@ const SearchPage = () => {
                     </div>
                 </div>
                 <div className="form-section d-flex justify-content-around mt-20">
-                    <button type="button" className="submit-btn bg-prim">SEARCH</button>
+                    <button type="button" className="submit-btn bg-prim" onClick={() => window.location.href = "/searchresult"}>SEARCH</button>
                     <button type="button" className="submit-btn fs-14 bg-grey">Clear Search Fields</button>
                 </div>
             </form>

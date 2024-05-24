@@ -6,11 +6,6 @@
     position: relative;
     padding: 10px;
 
-    & .dash-border {
-        padding: 5px;
-        border: 1px dashed $c-grey;
-    }
-
     & .main-form {
         & .form-section {
             height: auto;
