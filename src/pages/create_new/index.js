@@ -166,9 +166,8 @@ const CreateNewPage = () => {
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className="form-section border-none d-flex justify-content-around mt-20">
-                        <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-green" : " bg-grey cursor-not-allowed")} onClick={(e) => isSubmitAvailable ? alert("Submit") : {}}>SUBMIT</button>
-                        <button type="button" className="submit-btn bg-grey" onClick={() => window.location.href = "/statusreport"}>Status Report</button>
+                    <div className="form-section border-none d-flex justify-content-center mt-20">
+                        <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-green" : " bg-grey cursor-not-allowed")} onClick={(e) => isSubmitAvailable ? window.location.href = "/statusreport" : {}}>SUBMIT</button>
                     </div>
                 </div>
             </form>
