@@ -6,82 +6,63 @@ import calc_icon from "resources/calc.png"
 
 const CreateNewPage = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false)
-    const [v_field4, setVField4] = useState('')
-    const [v_field5, setVField5] = useState('')
-    const [v_field6, setVField6] = useState('')
-    const [v_field7, setVField7] = useState('')
-    const [v_field8, setVField8] = useState('')
-    const [v_editor, setVEditor] = useState('')
+    const [smi_title, setSmiTitle] = useState('')
+    const [origins, setOrigins] = useState('')
+    const [owner, setOwner] = useState('')
+    const [area, setArea] = useState('')
+    const [cost_description, setCostDescription] = useState('')
+    const [description, setDescription] = useState('')
     const [isSubmitAvailable, setSubmitAvailable] = useState(false)
 
     useEffect(() => {
-        if (v_field4!=="" && v_field5!=="" && v_field6!=="" && v_field7!=="" && v_field8!=="" && v_editor!=="") {
+        if (smi_title!=="" && origins!=="" && owner!=="" && area!=="" && cost_description!=="" && description!=="") {
             setSubmitAvailable(true)
         } else {
             setSubmitAvailable(false)
         }
-    }, [v_field4, v_field5, v_field6, v_field7, v_field8, v_editor])
+    }, [smi_title, origins, owner, area, cost_description, description])
 
     return (
         <div className="page-new">
             <p className="f-bold fs-20 fc-primary text-center">Create New</p>
-            <div className="my-2 d-flex justify-content-center">
-                <div className="dash-border">
-                    <p className="fs-14 fc-grey f-regular-italic">Required fields are outlined in <span className="fc-red">RED</span></p>
-                    <p className="fs-14 fc-grey f-regular-italic">Completed fields are outlined in <span className="fc-green">GREEN</span></p>
-                    <p className="fs-14 fc-grey f-regular-italic">Suggested fields are outlined in <span className="fc-black">BLACK</span></p>
-                </div>
-            </div>
-            <form className="main-form">
-                <div className="mt-20 d-flex px-10">
-                    <label className="label">Field1</label>
-                    <p className="text-center w-100">pulled from user login</p>
-                </div>
-                <div className="mt-10 d-flex px-10">
-                    <label className="label">Field2</label>
-                    <p className="text-center w-100">pulled from user login</p>
-                </div>
-                <div className="mt-10 d-flex px-10">
-                    <label className="label">Field3</label>
-                    <p className="text-center w-100">pulled from user login</p>
-                </div>
+            <form className="main-form mt-20">
                 <div className="mt-2">
-                    <div className={"form-section" + (v_field4==="" ? " border-red" : " border-green")}>
+                    <div className={"form-section" + (smi_title==="" ? " border-red" : " border-green")}>
                         <input 
                             className="input-control px-10"
                             type="text"
-                            name="field4"
-                            placeholder="Field4"
-                            value={v_field4}
-                            onChange={(e) => setVField4(e.target.value)} />
+                            name="smi_title"
+                            placeholder="SMI Title"
+                            value={smi_title}
+                            onChange={(e) => setSmiTitle(e.target.value)} />
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className={"form-section d-flex align-items-center" + (v_field5==="" ? "" : " border-green")}>
+                    <div className={"form-section d-flex align-items-center" + (origins==="" ? "" : " border-green")}>
                         <input
                             className="input-control px-10"
                             type="text"
-                            name="field5"
-                            placeholder="Field5"
-                            value={v_field5}
-                            onChange={(e) => setVField5(e.target.value)} />
-                        <span className="fs-12 position-absolute r-0 fc-grey f-regular-italic mr-10">(Use comma to seperate names)</span>
+                            name="origins"
+                            placeholder="Additional Originator(s)"
+                            value={origins}
+                            onChange={(e) => setOrigins(e.target.value)} />
+                        <span className="fs-12 position-absolute r-0 fc-grey f-regular-italic mr-5">(Use comma between names)</span>
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className={"form-section" + (v_field6==="" ? " border-red" : " border-green")}>
+                    <div className={"form-section" + (owner==="" ? " border-red" : " border-green")}>
                         <input
                             className="input-control px-10"
                             type="text"
-                            name="field6"
-                            placeholder="Field6"
-                            value={v_field6}
-                            onChange={(e) => setVField6(e.target.value)} />
+                            name="owner"
+                            placeholder="Owner"
+                            value={owner}
+                            onChange={(e) => setOwner(e.target.value)} />
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className={"form-section d-flex align-items-center" + (v_field7==="" ? " border-red" : " border-green")}>
-                        <input className="input-control px-10" type="text" name="field7" placeholder="Field7" value={v_field7} disabled />
+                    <div className={"form-section d-flex align-items-center" + (area==="" ? " border-red" : " border-green")}>
+                        <input className="input-control px-10" type="text" name="area" placeholder="Improvement Area" value={area} disabled />
                         <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDropdownOpen(!isDropdownOpen)}>Select</button>
                         <div className={"dropdown-content" + (isDropdownOpen ? " expand" : "")}>
                             <div className="d-flex justify-content-around py-1">
@@ -93,7 +74,7 @@ const CreateNewPage = () => {
                                     [1,2,3,4,5,6,7,8,9,10,11].map((value, i) => {
                                         return (<li key={i} onClick={(e) => {
                                                 setDropdownOpen(false)
-                                                setVField7("Example"+value)
+                                                setArea("Example"+value)
                                             }}>
                                             Example{value}
                                         </li>)
@@ -104,7 +85,7 @@ const CreateNewPage = () => {
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className={"form-section p-1" + (v_editor==="" ? " border-red" : " border-green")}>
+                    <div className={"form-section p-1" + (description==="" ? " border-red" : " border-green")}>
                         <div className="d-flex">
                             <div className="d-flex flex-column align-items-center w-50">
                                 <p className="fs-12">Text Options</p>
@@ -126,11 +107,11 @@ const CreateNewPage = () => {
                             className="mt-1"
                             placeholder="Description"
                             rows={6}
-                            value={v_editor}
-                            onChange={(e) => setVEditor(e.target.value)}></textarea>
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}></textarea>
                         <p className="w-100 d-flex justify-content-end pr-10 fc-grey fs-12">
                             {
-                                v_editor.length === 0 ? "0" : v_editor.length
+                                description.length === 0 ? "0" : description.length
                             }
                             /300 characters
                         </p>
@@ -159,9 +140,9 @@ const CreateNewPage = () => {
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className={"form-section d-flex flex-column p-1" + (v_field8==="" ? " border-red" : " border-green")}>
+                    <div className={"form-section d-flex flex-column p-1" + (cost_description==="" ? " border-red" : " border-green")}>
                         <div className="d-flex justify-content-between">
-                            <p className="fc-grey">Field8</p>
+                            <p className="fc-grey">Detailed Cost Savings Calculation</p>
                             <img className="calc-img" src={calc_icon} alt="" />
                         </div>
                         <div className="px-1">
@@ -171,13 +152,13 @@ const CreateNewPage = () => {
                             </div>
                             <textarea
                                 className="mt-3"
-                                placeholder="Description"
+                                placeholder="Cost Savings Description"
                                 rows={6}
-                                value={v_field8}
-                                onChange={(e) => setVField8(e.target.value)}></textarea>
+                                value={cost_description}
+                                onChange={(e) => setCostDescription(e.target.value)}></textarea>
                             <p className="w-100 d-flex justify-content-end pr-10 fc-grey fs-12">
                                 {
-                                    v_field8.length === 0 ? "0" : v_field8.length
+                                    cost_description.length === 0 ? "0" : cost_description.length
                                 }
                                 /300 characters
                             </p>
@@ -185,8 +166,9 @@ const CreateNewPage = () => {
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className="form-section border-none d-flex justify-content-center mt-20">
-                        <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-green" : " bg-grey")} onClick={(e) => isSubmitAvailable ? alert("Submit") : {}}>SUBMIT</button>
+                    <div className="form-section border-none d-flex justify-content-around mt-20">
+                        <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-green" : " bg-grey cursor-not-allowed")} onClick={(e) => isSubmitAvailable ? alert("Submit") : {}}>SUBMIT</button>
+                        <button type="button" className="submit-btn bg-grey" onClick={() => window.location.href = "/statusreport"}>Status Report</button>
                     </div>
                 </div>
             </form>

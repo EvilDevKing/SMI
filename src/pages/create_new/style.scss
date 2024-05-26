@@ -48,11 +48,14 @@
             }
         }
         & .submit-btn {
-            width: 40%;
             border: none;
             border-radius: 5px;
             color: $c-white;
-            padding: 10px 0px;
+            font-size: 20px;
+
+            &.cursor-not-allowed {
+                cursor: not-allowed !important;
+            }
         }
 
         & .dropdown-menu-btn {

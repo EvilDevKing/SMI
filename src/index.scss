@@ -112,8 +112,20 @@ p {
   border: 1px dashed $c-grey;
 }
 
+.bg-lightgrey {
+  background-color: $c-lightgrey !important;
+}
+
 .bg-grey {
   background-color: $c-grey !important;
+}
+
+.bg-darkgrey {
+  background-color: $c-darkgrey !important;
+}
+
+.bg-red {
+  background-color: $c-red !important;
 }
 
 .bg-green {
@@ -122,6 +134,10 @@ p {
 
 .bg-prim {
   background-color: $c-primary !important;
+}
+
+.bg-orange {
+  background-color: $c-orange !important;
 }
 
 .r-0 {

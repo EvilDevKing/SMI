@@ -9,6 +9,7 @@ import CreateNewPage from "./pages/create_new";
 import SearchPage from "pages/search";
 import SearchResultPage from "pages/search/result";
 import CreateReportPage from "pages/create_report";
+import StatusReportPage from "pages/status_report";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/search" element={<SearchPage />}></Route>
             <Route path="/searchresult" element={<SearchResultPage />}></Route>
             <Route path="/createreport" element={<CreateReportPage />}></Route>
+            <Route path="/statusreport" element={<StatusReportPage />}></Route>
           </Routes>
           <Footer />
         </Router>
