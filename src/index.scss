@@ -198,3 +198,102 @@ p {
 .rotate-90 {
   transform: rotate(90deg);
 }
+
+.grid-col-3 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+//////////////////////////////////////////////////
+/// Custom Checkbox Item
+/// //////////////////////////////////////////////
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark-checkbox, .checkmark-radio {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.checkmark-radio {
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-item:hover input ~ .checkmark-checkbox,
+.checkbox-item:hover input ~ .checkmark-radio {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-item input:checked ~ .checkmark-checkbox,
+.checkbox-item input:checked ~ .checkmark-radio {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-checkbox:after, .checkmark-radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-item input:checked ~ .checkmark-checkbox:after,
+.checkbox-item input:checked ~ .checkmark-radio:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-item .checkmark-checkbox:after {
+  left: 10px;
+  top: 3px;
+  width: 7px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox-item .checkmark-radio:after {
+  left: 9px;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $c-white;
+}

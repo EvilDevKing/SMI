@@ -13,6 +13,7 @@
             outline: none;
             border: none;
             border-radius: 5px;
+            background-color: $c-white;
             font-size: 20px;
             &::placeholder {
                 color: $c-grey;
@@ -65,6 +66,7 @@
             border-radius: 5px;
             color: $c-white;
             font-size: 20px;
+            padding: 10px 20px;
         }
 
         & .dropdown-menu-btn {
@@ -104,7 +106,7 @@
 
             & .dropdown-menus {
                 width: 100%;
-                padding: 5px;
+                padding: 10px;
                 background-color: $c-white;
                 list-style: none;
                 margin: 0;
@@ -142,6 +144,11 @@
             &::placeholder {
                 color: $c-grey;
             }
+        }
+
+        .scrollable {
+            height: 300px;
+            overflow-y: auto;
         }
     }
 }

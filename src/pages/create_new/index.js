@@ -114,19 +114,18 @@ const CreateNewPage = () => {
                     <div className={"form-section d-flex align-items-center" + (area==="" ? " border-red" : " border-green")}>
                         <input className="input-control px-10 py-2" type="text" name="area" placeholder="Improvement Area" value={area} disabled />
                         <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDropdownOpen(!isDropdownOpen)}>Select</button>
-                        <div className={"dropdown-content" + (isDropdownOpen ? " expand" : "")}>
-                            <div className="d-flex justify-content-around py-1">
-                                <button type="button" className="f-regular-italic bg-grey">Tab twice to Select</button>
-                                <p className="fs-14 fc-grey f-regular-italic">Select one that best suits your SMI</p>
+                        <div className={"dropdown-content" + (area==="" ? " border-red" : " border-green") + (isDropdownOpen ? " expand" : "")}>
+                            <div className="d-flex justify-content-center py-1">
+                                <p className="fs-20 fc-grey f-regular-italic">Select one that best suits your SMI</p>
                             </div>
                             <ul className="dropdown-menus">
                                 {
                                     areaList.map((value, i) => {
-                                        return (<li key={i} onClick={(e) => {
-                                                setDropdownOpen(false)
-                                                setArea(value)
-                                            }}>
-                                            {value}
+                                        return (<li key={i}>
+                                            <label className="checkbox-item">{value}
+                                                <input type="radio" name="radio" onChange={() => setArea(value)} />
+                                                <span className="checkmark-radio"></span>
+                                            </label>
                                         </li>)
                                     })
                                 }
