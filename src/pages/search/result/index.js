@@ -7,7 +7,8 @@ import "./style.scss"
 const SearchResultPage = () => {
     return (
         <div className="page-result">
-            <p className="f-bold fs-20 fc-primary text-center">Search Results</p>
+            <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
+            <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Search Results</p>
             <Accordion transition transitionTimeout={250} className="mt-3">
             {
                 [1,2,3,4,5,6,7].map((_, i) =>

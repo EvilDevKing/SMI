@@ -87,6 +87,22 @@ p {
   font-style: italic;
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis !important;
+}
+
+.text-style-bold {
+  font-weight: bold !important;
+}
+
+.text-style-italic {
+  font-style: italic !important;
+}
+
+.text-style-underline {
+  text-decoration: underline !important;
+}
+
 .border-red {
   border-color: $c-red !important;
 }
@@ -103,13 +119,36 @@ p {
   border-color: $c-darkgrey !important;
 }
 
+.border-lightgrey {
+  border-color: $c-lightgrey !important;
+}
+
+.border-grey {
+  border-color: $c-grey !important;
+}
+
 .border-none {
   border: none !important;
+}
+
+.bordered-1 {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.bordered-2 {
+  border-width: 2px;
+  border-style: solid;
 }
 
 .dash-border {
   padding: 5px;
   border: 1px dashed $c-grey;
+}
+
+.title-border {
+  border-top: 2px solid $c-darkgrey;
+  border-bottom: 2px solid $c-darkgrey;
 }
 
 .bg-lightgrey {

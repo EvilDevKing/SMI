@@ -18,7 +18,7 @@ const fetchData = async () => {
             {
                 name: cols[i].name,
                 selector: row => row[cols[i].key],
-                grow: cols[i].key === "Description" ? 2 : 0.5
+                grow: cols[i].key === "Description" ? 2 : 0
             }
         )
     }
@@ -103,20 +103,27 @@ const CreateReportPage = () => {
     const customStyles = {
         headCells: {
             style: {
-                fontSize: 10,
+                fontSize: 15,
                 fontWeight: 'bold'
             },
         },
         cells: {
             style: {
-                fontSize: 10
+                fontSize: 12
             },
         },
+        pagination: {
+            style: {
+                fontSize: 15,
+                color: "black"
+            }
+        }
     };
 
     return (
         <div className="page-report">
-            <p className="f-bold fs-20 fc-primary text-center">Report</p>
+            <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
+            <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Report</p>
             <div className="d-flex flex-column">
                 <p className="f-bold">Search Query:</p>
                 <div className="dash-border">
@@ -146,15 +153,14 @@ const CreateReportPage = () => {
                     customStyles={customStyles}
                     responsive
                     pagination
-                    paginationPerPage={30}
                     dense
                 />
             </div>
             <div className="d-flex flex-column mt-20">
                 <p className="w-100 text-center f-bold">Export Report from Search Results</p>
                 <div className="d-flex justify-content-around mt-10">
-                    <button type="button" className="export-btn fs-14" onClick={() => downloadCSV(data)}>Export to CSV</button>
-                    <button type="button" className="export-btn fs-14" onClick={() => exportToExcel("Report")}>Export to XLSX</button>
+                    <button type="button" className="export-btn" onClick={() => downloadCSV(data)}>Export to CSV</button>
+                    <button type="button" className="export-btn" onClick={() => exportToExcel("Report")}>Export to XLSX</button>
                 </div>
             </div>
             <div className="d-flex justify-content-center mt-30">

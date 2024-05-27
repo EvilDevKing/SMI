@@ -70,20 +70,21 @@ const SearchPage = () => {
 
     return (
         <div className="page-search">
-            <p className="f-bold fs-20 fc-primary text-center">Search</p>
+            <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
+            <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Search</p>
             <form className="search-form px-10">
                 <div className="form-section mt-20">
-                    <input type="number" min={1} max={99999} className="input-control bordered w-100" placeholder="Number (5 digits)" />
+                    <input type="number" min={1} max={99999} className="input-control bordered w-100 px-10 py-2" placeholder="Number (5 digits)" />
                 </div>
                 <div className="form-section mt-10">
-                    <label className="fs-14 fc-grey">Create Date Range</label>
+                    <label className="fs-18 fc-grey">Create Date Range</label>
                     <div className="d-flex">
-                        <div className="d-flex w-50 bordered border-darkgrey">
-                            <span className="d-flex justify-content-center align-items-center fs-14 w-75 h-100" >{startCreateDate}</span>
+                        <div className="d-flex w-75 bordered border-darkgrey py-1">
+                            <span className="d-flex justify-content-center align-items-center fs-20 w-75 h-100" >{startCreateDate}</span>
                             <span className="f-regular-italic fc-grey">thru</span>
-                            <span className="d-flex justify-content-center align-items-center fs-14 w-75">{endCreateDate}</span>
+                            <span className="d-flex justify-content-center align-items-center fs-20 w-75">{endCreateDate}</span>
                         </div>
-                        <button type="button" className="icon-btn" onClick={() => setCreateDateOpen(!isCreateDateOpen)}><img src={calendar_range_icon} width={20} alt="" /></button>
+                        <button type="button" className="icon-btn" onClick={() => setCreateDateOpen(!isCreateDateOpen)}><img src={calendar_range_icon} width={30} alt="" /></button>
                     </div>
                     {
                         isCreateDateOpen ? 
@@ -98,14 +99,14 @@ const SearchPage = () => {
                     }
                 </div>
                 <div className="form-section mt-10">
-                    <label className="fs-14 fc-grey">Date Modified Range</label>
+                    <label className="fs-18 fc-grey">Date Modified Range</label>
                     <div className="d-flex">
-                        <div className="d-flex w-50 bordered border-darkgrey">
-                            <span className="d-flex justify-content-center align-items-center fs-14 w-75 h-100" >{startModifyDate}</span>
+                        <div className="d-flex w-75 bordered border-darkgrey py-1">
+                            <span className="d-flex justify-content-center align-items-center fs-20 w-75 h-100" >{startModifyDate}</span>
                             <span className="f-regular-italic fc-grey">thru</span>
-                            <span className="d-flex justify-content-center align-items-center fs-14 w-75">{endModifyDate}</span>
+                            <span className="d-flex justify-content-center align-items-center fs-20 w-75">{endModifyDate}</span>
                         </div>
-                        <button type="button" className="icon-btn" onClick={() => setModifyDateOpen(!isModifyDateOpen)}><img src={calendar_range_icon} width={20} alt="" /></button>
+                        <button type="button" className="icon-btn" onClick={() => setModifyDateOpen(!isModifyDateOpen)}><img src={calendar_range_icon} width={30} alt="" /></button>
                     </div>
                     {
                         isModifyDateOpen ? 
@@ -120,7 +121,7 @@ const SearchPage = () => {
                     }
                 </div>
                 <div className="form-section mt-10">
-                    <label className="fs-14 fc-grey f-regular-italic">Quick Select</label>
+                    <label className="fs-18 fc-grey f-regular-italic">Quick Select</label>
                     <div className="button-group">
                         <button type="button" className="bg-grey">Annual Quarter to Date</button>
                         <button type="button" className="bg-grey">Annual Year to Date</button>
@@ -131,44 +132,44 @@ const SearchPage = () => {
                 <div className="form-section mt-20">
                     <p className="w-100 text-center fs-18 fc-darkgrey">Additional Search Criteria</p>
                 </div>
-                <div className={"form-section mt-10 bordered" + (smi_title==="" ? " border-red" : " border-green")}>
+                <div className={"form-section mt-10 bordered"}>
                     <input
-                        className="input-control px-10 w-100"
+                        className="input-control px-10 w-100 py-2"
                         type="text"
                         name="smi_title"
                         placeholder="SMI Title"
                         value={smi_title}
                         onChange={(e) => setSmiTitle(e.target.value)} />
                 </div>
-                <div className={"form-section mt-1 bordered" + (owner==="" ? " border-red" : " border-green")}>
+                <div className={"form-section mt-1 bordered"}>
                     <input
-                        className="input-control px-10 w-100"
+                        className="input-control px-10 w-100 py-2"
                         type="text"
                         name="owner"
                         placeholder="Owner"
                         value={owner}
                         onChange={(e) => setOwner(e.target.value)} />
                 </div>
-                <div className={"form-section mt-1 bordered" + (origin==="" ? " border-red" : " border-green")}>
+                <div className={"form-section mt-1 bordered"}>
                     <input
-                        className="input-control px-10 w-100"
+                        className="input-control px-10 w-100 py-2"
                         type="text"
                         name="origin"
                         placeholder="Originator"
                         value={origin}
                         onChange={(e) => setOrigin(e.target.value)} />
                 </div>
-                <div className={"form-section mt-1 bordered" + (extra_origins==="" ? " border-red" : " border-green")}>
+                <div className={"form-section mt-1 bordered"}>
                     <input
-                        className="input-control px-10 w-100"
+                        className="input-control px-10 w-100 py-2"
                         type="text"
                         name="extra_origins"
                         placeholder="Additional Originator(s)"
                         value={extra_origins}
                         onChange={(e) => setExtraOrigins(e.target.value)} />
                 </div>
-                <div className={"form-section bordered mt-1 d-flex align-items-center" + (improve_area==="" ? " border-red" : " border-green")}>
-                    <input className="input-control px-10" type="text" name="improve_area" placeholder="Improvement Area" value={improve_area} disabled />
+                <div className={"form-section bordered mt-1 d-flex align-items-center"}>
+                    <input className="input-control px-10 py-2" type="text" name="improve_area" placeholder="Improvement Area" value={improve_area} disabled />
                     <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setAreaDropdownOpen(!isAreaDropdownOpen)}>Select</button>
                     <div className={"dropdown-content" + (isAreaDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-around py-1">
@@ -189,9 +190,9 @@ const SearchPage = () => {
                         </ul>
                     </div>
                 </div>
-                <div className={"form-section mt-1 bordered d-flex align-items-center" + (description==="" ? "" : " border-green")}>
+                <div className={"form-section mt-1 bordered d-flex align-items-center"}>
                     <input
-                        className="input-control px-10 w-100"
+                        className="input-control px-10 w-100 py-2"
                         type="text"
                         name="description"
                         placeholder="Description"
@@ -199,8 +200,8 @@ const SearchPage = () => {
                         onChange={(e) => setDescription(e.target.value)} />
                     <span className="fs-12 position-absolute r-0 fc-grey f-regular-italic mr-5">Enter any keywords</span>
                 </div>
-                <div className={"form-section bordered mt-1 d-flex align-items-center" + (division==="" ? " border-red" : " border-green")}>
-                    <input className="input-control px-10" type="text" name="division" placeholder="Division" value={division} disabled />
+                <div className={"form-section bordered mt-1 d-flex align-items-center"}>
+                    <input className="input-control px-10 py-2" type="text" name="division" placeholder="Division" value={division} disabled />
                     <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDivisionDropdownOpen(!isDivisionDropdownOpen)}>Select</button>
                     <div className={"dropdown-content" + (isDivisionDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-around py-1">
@@ -221,8 +222,8 @@ const SearchPage = () => {
                         </ul>
                     </div>
                 </div>
-                <div className={"form-section bordered mt-1 d-flex align-items-center" + (department==="" ? " border-red" : " border-green")}>
-                    <input className="input-control px-10" type="text" name="department" placeholder="Department" value={department} disabled />
+                <div className={"form-section bordered mt-1 d-flex align-items-center"}>
+                    <input className="input-control px-10 py-2" type="text" name="department" placeholder="Department" value={department} disabled />
                     <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDepartDropdownOpen(!isDepartDropdownOpen)}>Select</button>
                     <div className={"dropdown-content" + (isDepartDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-around py-1">
@@ -243,8 +244,8 @@ const SearchPage = () => {
                         </ul>
                     </div>
                 </div>
-                <div className={"form-section bordered mt-1 d-flex align-items-center" + (stage==="" ? " border-red" : " border-green")}>
-                    <input className="input-control px-10" type="text" name="stage" placeholder="SMI Stage" value={stage} disabled />
+                <div className={"form-section bordered mt-1 d-flex align-items-center"}>
+                    <input className="input-control px-10 py-2" type="text" name="stage" placeholder="SMI Stage" value={stage} disabled />
                     <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setStageDropdownOpen(!isStageDropdownOpen)}>Select</button>
                     <div className={"dropdown-content" + (isStageDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-around py-1">

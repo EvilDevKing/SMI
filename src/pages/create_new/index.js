@@ -1,10 +1,14 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import { TypeBold, TypeItalic, TypeUnderline, ListOl, ListUl } from "react-bootstrap-icons"
 import "./style.scss"
 
 import calc_icon from "resources/calc.png"
 
 const CreateNewPage = () => {
+
+    const inputImageFileRef = useRef(null)
+    const inputDocumentFileRef = useRef(null)
+
     const [isDropdownOpen, setDropdownOpen] = useState(false)
     const [smi_title, setSmiTitle] = useState('')
     const [origins, setOrigins] = useState('')
@@ -14,6 +18,16 @@ const CreateNewPage = () => {
     const [description, setDescription] = useState('')
     const [isSubmitAvailable, setSubmitAvailable] = useState(false)
 
+    const [isTypeBold, setTypeBold] = useState(false)
+    const [isTypeItalic, setTypeItalic] = useState(false)
+    const [isTypeUnderline, setTypeUnderline] = useState(false)
+
+    const [isListOl, setListOl] = useState(false)
+    const [isListUl, setListUl] = useState(false)
+
+    const [imageFileList, setImageFileList] = useState([])
+    const [documentFileList, setDocumentFileList] = useState([])
+
     useEffect(() => {
         if (smi_title!=="" && origins!=="" && owner!=="" && area!=="" && cost_description!=="" && description!=="") {
             setSubmitAvailable(true)
@@ -22,14 +36,49 @@ const CreateNewPage = () => {
         }
     }, [smi_title, origins, owner, area, cost_description, description])
 
+    const pickImageFile = (e) => {
+        let files = []
+        for (let i = 0; i < e.target.files.length; i++) {
+            files.push(e.target.files[i])
+        }
+        setImageFileList(files)
+    }
+
+    const pickDocumentFile = (e) => {
+        let files = []
+        for (let i = 0; i < e.target.files.length; i++) {
+            files.push(e.target.files[i])
+        }
+        setDocumentFileList(files)
+    }
+
+    const removeImageFileFromList = (file) => {
+        let array = [...imageFileList]
+        const index = array.indexOf(file);
+        if (index > -1) {
+          array.splice(index, 1);
+        }
+        setImageFileList(array)
+    }
+
+    const removeDocumentFileFromList = (file) => {
+        let array = [...documentFileList]
+        const index = array.indexOf(file);
+        if (index > -1) {
+          array.splice(index, 1);
+        }
+        setDocumentFileList(array)
+    }
+
     return (
         <div className="page-new">
-            <p className="f-bold fs-20 fc-primary text-center">Create New</p>
+            <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
+            <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Create New</p>
             <form className="main-form mt-20">
                 <div className="mt-2">
                     <div className={"form-section" + (smi_title==="" ? " border-red" : " border-green")}>
                         <input 
-                            className="input-control px-10"
+                            className="input-control px-10 py-2"
                             type="text"
                             name="smi_title"
                             placeholder="SMI Title"
@@ -40,7 +89,7 @@ const CreateNewPage = () => {
                 <div className="mt-2">
                     <div className={"form-section d-flex align-items-center" + (origins==="" ? "" : " border-green")}>
                         <input
-                            className="input-control px-10"
+                            className="input-control px-10 py-2"
                             type="text"
                             name="origins"
                             placeholder="Additional Originator(s)"
@@ -52,7 +101,7 @@ const CreateNewPage = () => {
                 <div className="mt-2">
                     <div className={"form-section" + (owner==="" ? " border-red" : " border-green")}>
                         <input
-                            className="input-control px-10"
+                            className="input-control px-10 py-2"
                             type="text"
                             name="owner"
                             placeholder="Owner"
@@ -62,12 +111,12 @@ const CreateNewPage = () => {
                 </div>
                 <div className="mt-2">
                     <div className={"form-section d-flex align-items-center" + (area==="" ? " border-red" : " border-green")}>
-                        <input className="input-control px-10" type="text" name="area" placeholder="Improvement Area" value={area} disabled />
+                        <input className="input-control px-10 py-2" type="text" name="area" placeholder="Improvement Area" value={area} disabled />
                         <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDropdownOpen(!isDropdownOpen)}>Select</button>
                         <div className={"dropdown-content" + (isDropdownOpen ? " expand" : "")}>
                             <div className="d-flex justify-content-around py-1">
                                 <button type="button" className="f-regular-italic bg-grey">Tab twice to Select</button>
-                                <p className="fs-12 fc-grey f-regular-italic">Select one that best suits your SMI</p>
+                                <p className="fs-14 fc-grey f-regular-italic">Select one that best suits your SMI</p>
                             </div>
                             <ul className="dropdown-menus">
                                 {
@@ -90,21 +139,26 @@ const CreateNewPage = () => {
                             <div className="d-flex flex-column align-items-center w-50">
                                 <p className="fs-12">Text Options</p>
                                 <div className="">
-                                    <button type="button" className="editor-action-btn"><TypeBold size={25} /></button>
-                                    <button type="button" className="editor-action-btn"><TypeItalic size={25} /></button>
-                                    <button type="button" className="editor-action-btn"><TypeUnderline size={25} /></button>
+                                    <button type="button" className={"editor-action-btn" + (isTypeBold ? " bg-prim fc-white" : "")} onClick={() => setTypeBold(!isTypeBold)}><TypeBold size={25} /></button>
+                                    <button type="button" className={"editor-action-btn" + (isTypeItalic ? " bg-prim fc-white" : "")} onClick={() => setTypeItalic(!isTypeItalic)}><TypeItalic size={25} /></button>
+                                    <button type="button" className={"editor-action-btn" + (isTypeUnderline ? " bg-prim fc-white" : "")} onClick={() => setTypeUnderline(!isTypeUnderline)}><TypeUnderline size={25} /></button>
                                 </div>
                             </div>
                             <div className="d-flex flex-column align-items-center w-50">
                                 <p className="fs-12">Paragraph Options</p>
                                 <div className="">
-                                    <button type="button" className="editor-action-btn"><ListUl size={25} /></button>
-                                    <button type="button" className="editor-action-btn"><ListOl size={25} /></button>
+                                    <button type="button" className={"editor-action-btn" + (isListUl ? " bg-prim fc-white" : "")} onClick={() => setListUl(!isListUl)}><ListUl size={25} /></button>
+                                    <button type="button" className={"editor-action-btn" + (isListOl ? " bg-prim fc-white" : "")} onClick={() => setListOl(!isListOl)}><ListOl size={25} /></button>
                                 </div>
                             </div>
                         </div>
                         <textarea
-                            className="mt-1"
+                            className={
+                                "mt-1" +
+                                (isTypeBold ? " text-style-bold" : "") +
+                                (isTypeItalic ? " text-style-italic" : "") +
+                                (isTypeUnderline ? " text-style-underline" : "")
+                            }
                             placeholder="Description"
                             rows={6}
                             value={description}
@@ -121,10 +175,25 @@ const CreateNewPage = () => {
                     <div className="form-section d-flex flex-column p-1">
                         <div className="d-flex justify-content-between">
                             <p className="fc-grey">Image Upload</p>
-                            <button type="button" className="select-file-btn">Select from Device</button>
+                            <button type="button" className="select-file-btn" onClick={() => inputImageFileRef.current.click()}>Select from Device</button>
+                            <input type="file" className="d-none" ref={inputImageFileRef} multiple accept=".jpg, .png, .gif" onChange={pickImageFile} />
                         </div>
                         <div className="file-board d-flex align-items-center justify-content-center">
-                            <p className="fc-grey">jpg, png, gif</p>
+                            {
+                                imageFileList.length === 0 ? <p className="fc-grey py-20">jpg, png, gif</p> :
+                                <div className="file-list mt-10">
+                                {
+                                    imageFileList.map((file, i) => {
+                                        return (
+                                            <div key={i} className="d-flex justify-content-between bordered-1 border-lightgrey w-100">
+                                                <p className="fs-16 fc-primary text-ellipsis px-10 py-1">{file.name}</p>
+                                                <button type="button" className="border-none bg-red fc-white px-10" onClick={() => removeImageFileFromList(file)}>X</button>
+                                            </div>
+                                        )
+                                    })
+                                }
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -132,10 +201,25 @@ const CreateNewPage = () => {
                     <div className="form-section d-flex flex-column p-1">
                         <div className="d-flex justify-content-between">
                             <p className="fc-grey">Additional Documents</p>
-                            <button type="button" className="select-file-btn">Select from Device</button>
+                            <button type="button" className="select-file-btn" onClick={() => inputDocumentFileRef.current.click()}>Select from Device</button>
+                            <input type="file" className="d-none" ref={inputDocumentFileRef} multiple accept=".mp3, .mp4, .pdf, .xlsx, .csv, .docx" onChange={pickDocumentFile} />
                         </div>
                         <div className="file-board d-flex align-items-center justify-content-center">
-                            <p className="fc-grey">mp3, mp4, pdf, xlsx, csv, docx</p>
+                            {
+                                documentFileList.length === 0 ? <p className="fc-grey py-20">mp3, mp4, pdf, xlsx, csv, docx</p> :
+                                <div className="file-list mt-10">
+                                {
+                                    documentFileList.map((file, i) => {
+                                        return (
+                                            <div key={i} className="d-flex justify-content-between bordered-1 border-lightgrey w-100">
+                                                <p className="fs-16 fc-primary text-ellipsis px-10 py-1">{file.name}</p>
+                                                <button type="button" className="border-none bg-red fc-white px-10" onClick={() => removeDocumentFileFromList(file)}>X</button>
+                                            </div>
+                                        )
+                                    })
+                                }
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -167,8 +251,9 @@ const CreateNewPage = () => {
                 </div>
                 <div className="mt-2">
                     <div className="form-section border-none d-flex justify-content-center mt-20">
-                        <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-green" : " bg-grey cursor-not-allowed")} onClick={(e) => isSubmitAvailable ? window.location.href = "/statusreport" : {}}>SUBMIT</button>
+                        <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-prim" : " bg-grey cursor-not-allowed")} onClick={(e) => isSubmitAvailable ? window.location.href = "/thank" : {}}>SUBMIT</button>
                     </div>
+                    <p className="w-100 text-center fs-14 fc-darkgrey f-regular-italic mt-10">This button will turn blue when the form is complete.</p>
                 </div>
             </form>
         </div>

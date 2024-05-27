@@ -4,7 +4,6 @@
     width: 100%;
     height: auto;
     position: relative;
-    padding: 10px;
 
     & .main-form {
         & .form-section {
@@ -63,7 +62,7 @@
             position: absolute;
             right: 0;
             padding: 0px 10px;
-            font-size: 12px;
+            font-size: 18px;
             color: $c-white;
             border: none;
             border-radius: 20px;
@@ -87,7 +86,7 @@
             & button {
                 width: auto;
                 padding: 0px 10px;
-                font-size: 12px;
+                font-size: 15px;
                 color: $c-white;
                 border: none;
                 border-radius: 20px;
@@ -112,7 +111,14 @@
 
         & .file-board {
             width: 100%;
-            height: 100px;
+            height: auto;
+
+            .file-list {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5px;
+            }
         }
 
         & .calc-img {
