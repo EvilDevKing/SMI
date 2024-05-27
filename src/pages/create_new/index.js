@@ -1,4 +1,6 @@
 import React, {useState, useEffect, useRef} from "react"
+import ReactModal from "react-modal"
+import Calculator from "components/Calculator"
 import { TypeBold, TypeItalic, TypeUnderline, ListOl, ListUl } from "react-bootstrap-icons"
 import { areaList } from "../../resources/data"
 import "./style.scss"
@@ -28,6 +30,10 @@ const CreateNewPage = () => {
 
     const [imageFileList, setImageFileList] = useState([])
     const [documentFileList, setDocumentFileList] = useState([])
+
+    const [showCalcModal, setShowCalcModal] = useState(false)
+    const [calcResult, setCalcResult] = useState('')
+    const [tempCalcResult, setTempCalcResult] = useState('')
 
     useEffect(() => {
         if (smi_title!=="" && owner!=="" && area!=="" && cost_description!=="" && description!=="") {
@@ -69,6 +75,14 @@ const CreateNewPage = () => {
           array.splice(index, 1);
         }
         setDocumentFileList(array)
+    }
+
+    const openCalcModal = (e) => {
+        setShowCalcModal(true)
+    }
+
+    const closeCalcModal = (e) => {
+        setShowCalcModal(false)
     }
 
     return (
@@ -227,12 +241,12 @@ const CreateNewPage = () => {
                     <div className={"form-section d-flex flex-column p-1" + (cost_description==="" ? " border-red" : " border-green")}>
                         <div className="d-flex justify-content-between">
                             <p className="fc-grey fs-18">Detailed Cost Savings Calculation</p>
-                            <img className="calc-img" src={calc_icon} alt="" />
+                            <button type="button" className="border-none bg-white" onClick={openCalcModal}><img className="calc-img" src={calc_icon} alt="" /></button>
                         </div>
                         <div className="px-1">
                             <div className="d-flex">
                                 <span className="fs-20 fc-primary">$</span>
-                                <input type="number" className="input-control dashed-border" />
+                                <input type="text" className="input-control dashed-border fc-primary px-10" value={calcResult} onChange={(e) => setCalcResult(e.target.value)} />
                             </div>
                             <textarea
                                 className="mt-3 fs-18"
@@ -256,6 +270,18 @@ const CreateNewPage = () => {
                     <p className="w-100 text-center fs-16 fc-darkgrey f-regular-italic mt-10">This button will turn blue when the form is complete.</p>
                 </div>
             </form>
+            <ReactModal isOpen={showCalcModal} shouldCloseOnEsc ariaHideApp={false}>
+                <div className="d-flex flex-column">
+                    <Calculator onChangeResult={(result) => setTempCalcResult(result)} />
+                    <div className="d-flex justify-content-around">
+                        <button type="button" className="calc-btn fs-25 mt-20" onClick={() => {
+                            setCalcResult(tempCalcResult)
+                            closeCalcModal()
+                        }}>Apply</button>
+                        <button type="button" className="calc-btn bg-grey fs-25 mt-20" onClick={closeCalcModal}>Close</button>
+                    </div>
+                </div>
+            </ReactModal>
         </div>
     )
 }

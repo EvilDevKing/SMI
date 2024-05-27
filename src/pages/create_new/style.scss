@@ -145,3 +145,24 @@
         }
     }
 }
+.calc-btn {
+    border: none;
+    background-color: $c-primary;
+    color: $c-white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.ReactModal__Content {
+    width: 30%;
+    inset: 0 !important;
+    position: relative !important;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .ReactModal__Content {
+        width: 90%;
+    }
+}
