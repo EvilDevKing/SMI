@@ -203,7 +203,14 @@ const SearchPage = () => {
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
                     <input className="input-control px-10 py-2 w-100" type="text" name="improve_area" placeholder="Improvement Area" value={improve_area} disabled />
-                    <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setAreaDropdownOpen(!isAreaDropdownOpen)}>Select</button>
+                    <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => 
+                    {
+                        setAreaDropdownOpen(!isAreaDropdownOpen)
+                        setDivisionDropdownOpen(false)
+                        setDepartDropdownOpen(false)
+                        setStageDropdownOpen(false)
+                    }
+                    }>Select</button>
                     <div className={"dropdown-content" + (isAreaDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-center py-1">
                             <p className="fs-18 fc-grey f-regular-italic">Select one that best suits your SMI</p>
@@ -240,7 +247,14 @@ const SearchPage = () => {
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
                     <input className="input-control px-10 py-2 text-ellipsis w-100" type="text" name="division" placeholder="Division" value={division.join(", ")} disabled />
-                    <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDivisionDropdownOpen(!isDivisionDropdownOpen)}>Select</button>
+                    <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => 
+                    {
+                        setDivisionDropdownOpen(!isDivisionDropdownOpen)
+                        setAreaDropdownOpen(false)
+                        setDepartDropdownOpen(false)
+                        setStageDropdownOpen(false)
+                    }
+                    }>Select</button>
                     <div className={"dropdown-content" + (isDivisionDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-center py-1">
                             <p className="fs-20 fc-grey f-regular-italic">Select one that best suits your SMI</p>
@@ -270,7 +284,14 @@ const SearchPage = () => {
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
                     <input className="input-control px-10 py-2" type="text" name="stage" placeholder="SMI Stage" value={stage} disabled />
-                    <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setStageDropdownOpen(!isStageDropdownOpen)}>Select</button>
+                    <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => 
+                    {
+                        setStageDropdownOpen(!isStageDropdownOpen)
+                        setAreaDropdownOpen(false)
+                        setDivisionDropdownOpen(false)
+                        setDepartDropdownOpen(false)
+                    }
+                    }>Select</button>
                     <div className={"dropdown-content" + (isStageDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-around bg-lightgrey py-3"></div>
                         <ul className="dropdown-menus">
