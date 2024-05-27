@@ -30,7 +30,7 @@ const CreateNewPage = () => {
     const [documentFileList, setDocumentFileList] = useState([])
 
     useEffect(() => {
-        if (smi_title!=="" && origins!=="" && owner!=="" && area!=="" && cost_description!=="" && description!=="") {
+        if (smi_title!=="" && owner!=="" && area!=="" && cost_description!=="" && description!=="") {
             setSubmitAvailable(true)
         } else {
             setSubmitAvailable(false)
@@ -88,7 +88,7 @@ const CreateNewPage = () => {
                     </div>
                 </div>
                 <div className="mt-2">
-                    <div className={"form-section d-flex align-items-center" + (origins==="" ? "" : " border-green")}>
+                    <div className={"form-section d-flex align-items-center"}>
                         <input
                             className="input-control px-10 py-2"
                             type="text"
