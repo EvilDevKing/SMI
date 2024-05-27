@@ -20,11 +20,11 @@ const SearchPage = () => {
     const [isDepartDropdownOpen, setDepartDropdownOpen] = useState(false)
     const [isStageDropdownOpen, setStageDropdownOpen] = useState(false)
     const [isCreateDateOpen, setCreateDateOpen] = useState(false)
-    const [startCreateDate, setStartCreateDate] = useState('__/ __/ __')
-    const [endCreateDate, setEndCreateDate] = useState('__/ __/ __')
+    const [startCreateDate, setStartCreateDate] = useState('__ / __ / __')
+    const [endCreateDate, setEndCreateDate] = useState('__ / __ / __')
     const [isModifyDateOpen, setModifyDateOpen] = useState(false)
-    const [startModifyDate, setStartModifyDate] = useState('__/ __/ __')
-    const [endModifyDate, setEndModifyDate] = useState('__/ __/ __')
+    const [startModifyDate, setStartModifyDate] = useState('__ / __ / __')
+    const [endModifyDate, setEndModifyDate] = useState('__ / __ / __')
 
     function isEmpty(obj) {
         for (const prop in obj) {
@@ -48,14 +48,14 @@ const SearchPage = () => {
         if (flag == 1) {
             setStartCreateDate(new DateObject(startObject).format())
             if (isEmpty(endObject))
-                setEndCreateDate("__/ __/ __")
+                setEndCreateDate("__ / __ / __")
             else
                 setEndCreateDate(new DateObject(endObject).format())
 
         } else {
             setStartModifyDate(new DateObject(startObject).format())
             if (isEmpty(endObject))
-                setEndModifyDate("__/ __/ __")
+                setEndModifyDate("__ / __ / __")
             else
                 setEndModifyDate(new DateObject(endObject).format())
         }
