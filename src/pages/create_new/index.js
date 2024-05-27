@@ -254,7 +254,7 @@ const CreateNewPage = () => {
                     <div className="form-section border-none d-flex justify-content-center mt-20">
                         <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-prim" : " bg-grey cursor-not-allowed")} onClick={(e) => isSubmitAvailable ? window.location.href = "/thank" : {}}>SUBMIT</button>
                     </div>
-                    <p className="w-100 text-center fs-14 fc-darkgrey f-regular-italic mt-10">This button will turn blue when the form is complete.</p>
+                    <p className="w-100 text-center fs-16 fc-darkgrey f-regular-italic mt-10">This button will turn blue when the form is complete.</p>
                 </div>
             </form>
         </div>

@@ -51,7 +51,8 @@
             border: none;
             border-radius: 5px;
             color: $c-white;
-            font-size: 20px;
+            font-size: 25px;
+            padding: 10px 20px;
 
             &.cursor-not-allowed {
                 cursor: not-allowed !important;
