@@ -96,7 +96,7 @@ const CreateNewPage = () => {
                             placeholder="Additional Originator(s)"
                             value={origins}
                             onChange={(e) => setOrigins(e.target.value)} />
-                        <span className="fs-12 position-absolute r-0 fc-grey f-regular-italic mr-5">(Use comma between names)</span>
+                        <span className="fs-16 position-absolute r-0 fc-grey f-regular-italic mr-5">(Use comma between names)</span>
                     </div>
                 </div>
                 <div className="mt-2">
@@ -138,7 +138,7 @@ const CreateNewPage = () => {
                     <div className={"form-section p-1" + (description==="" ? " border-red" : " border-green")}>
                         <div className="d-flex">
                             <div className="d-flex flex-column align-items-center w-50">
-                                <p className="fs-12">Text Options</p>
+                                <p className="fs-16">Text Options</p>
                                 <div className="">
                                     <button type="button" className={"editor-action-btn" + (isTypeBold ? " bg-prim fc-white" : "")} onClick={() => setTypeBold(!isTypeBold)}><TypeBold size={25} /></button>
                                     <button type="button" className={"editor-action-btn" + (isTypeItalic ? " bg-prim fc-white" : "")} onClick={() => setTypeItalic(!isTypeItalic)}><TypeItalic size={25} /></button>
@@ -146,7 +146,7 @@ const CreateNewPage = () => {
                                 </div>
                             </div>
                             <div className="d-flex flex-column align-items-center w-50">
-                                <p className="fs-12">Paragraph Options</p>
+                                <p className="fs-16">Paragraph Options</p>
                                 <div className="">
                                     <button type="button" className={"editor-action-btn" + (isListUl ? " bg-prim fc-white" : "")} onClick={() => setListUl(!isListUl)}><ListUl size={25} /></button>
                                     <button type="button" className={"editor-action-btn" + (isListOl ? " bg-prim fc-white" : "")} onClick={() => setListOl(!isListOl)}><ListOl size={25} /></button>
@@ -155,7 +155,7 @@ const CreateNewPage = () => {
                         </div>
                         <textarea
                             className={
-                                "mt-1" +
+                                "mt-1 fs-18" +
                                 (isTypeBold ? " text-style-bold" : "") +
                                 (isTypeItalic ? " text-style-italic" : "") +
                                 (isTypeUnderline ? " text-style-underline" : "")
@@ -175,7 +175,7 @@ const CreateNewPage = () => {
                 <div className="mt-2">
                     <div className="form-section d-flex flex-column p-1">
                         <div className="d-flex justify-content-between">
-                            <p className="fc-grey">Image Upload</p>
+                            <p className="fc-grey fs-18">Image Upload</p>
                             <button type="button" className="select-file-btn" onClick={() => inputImageFileRef.current.click()}>Select from Device</button>
                             <input type="file" className="d-none" ref={inputImageFileRef} multiple accept=".jpg, .png, .gif" onChange={pickImageFile} />
                         </div>
@@ -201,7 +201,7 @@ const CreateNewPage = () => {
                 <div className="mt-2">
                     <div className="form-section d-flex flex-column p-1">
                         <div className="d-flex justify-content-between">
-                            <p className="fc-grey">Additional Documents</p>
+                            <p className="fc-grey fs-18">Additional Documents</p>
                             <button type="button" className="select-file-btn" onClick={() => inputDocumentFileRef.current.click()}>Select from Device</button>
                             <input type="file" className="d-none" ref={inputDocumentFileRef} multiple accept=".mp3, .mp4, .pdf, .xlsx, .csv, .docx" onChange={pickDocumentFile} />
                         </div>
@@ -227,7 +227,7 @@ const CreateNewPage = () => {
                 <div className="mt-2">
                     <div className={"form-section d-flex flex-column p-1" + (cost_description==="" ? " border-red" : " border-green")}>
                         <div className="d-flex justify-content-between">
-                            <p className="fc-grey">Detailed Cost Savings Calculation</p>
+                            <p className="fc-grey fs-18">Detailed Cost Savings Calculation</p>
                             <img className="calc-img" src={calc_icon} alt="" />
                         </div>
                         <div className="px-1">
@@ -236,7 +236,7 @@ const CreateNewPage = () => {
                                 <input type="number" className="input-control dashed-border" />
                             </div>
                             <textarea
-                                className="mt-3"
+                                className="mt-3 fs-18"
                                 placeholder="Cost Savings Description"
                                 rows={6}
                                 value={cost_description}

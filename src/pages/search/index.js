@@ -75,7 +75,7 @@ const SearchPage = () => {
             <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Search</p>
             <form className="search-form px-10">
                 <div className="form-section mt-20">
-                    <input type="number" min={1} max={99999} className="input-control bordered w-100 px-10 py-2" placeholder="Number (5 digits)" />
+                    <input type="number" min={1} max={99999} className="input-control fs-16 bordered w-100 px-10 py-2" placeholder="Number (5 digits)" />
                 </div>
                 <div className="form-section mt-10">
                     <label className="fs-18 fc-grey">Date Created Range</label>
@@ -199,7 +199,7 @@ const SearchPage = () => {
                         placeholder="Description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)} />
-                    <span className="fs-12 position-absolute r-0 fc-grey f-regular-italic mr-5">Enter any keywords</span>
+                    <span className="fs-16 position-absolute r-0 fc-grey f-regular-italic mr-5">Enter any keywords</span>
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
                     <input className="input-control px-10 py-2" type="text" name="division" placeholder="Division" value={division} disabled />
