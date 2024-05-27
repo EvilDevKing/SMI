@@ -137,8 +137,10 @@ const CreateNewPage = () => {
                                     areaList.map((value, i) => {
                                         return (<li key={i}>
                                             <label className="checkbox-item">{value}
-                                                <input type="radio" name="radio" onChange={() => setArea(value)} />
-                                                <span className="checkmark-radio"></span>
+                                                <input type="radio" name="radio" onChange={() => {
+                                                    setArea(value)
+                                                    setDropdownOpen(false)
+                                                }} />
                                             </label>
                                         </li>)
                                     })
@@ -267,7 +269,11 @@ const CreateNewPage = () => {
                     <div className="form-section border-none d-flex justify-content-center mt-20">
                         <button type="button" className={"submit-btn" + (isSubmitAvailable ? " bg-prim" : " bg-grey cursor-not-allowed")} onClick={(e) => isSubmitAvailable ? window.location.href = "/thank" : {}}>SUBMIT</button>
                     </div>
-                    <p className="w-100 text-center fs-16 fc-darkgrey f-regular-italic mt-10">This button will turn blue when the form is complete.</p>
+                    <p className="w-100 text-center fs-16 fc-darkgrey f-regular-italic mt-10">
+                    {
+                        isSubmitAvailable ? "You will receive an email confirming this has been posted." : "This button will turn blue when the form is complete."
+                    }
+                    </p>
                 </div>
             </form>
             <ReactModal isOpen={showCalcModal} shouldCloseOnEsc ariaHideApp={false}>

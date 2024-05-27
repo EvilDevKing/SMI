@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import ReactModal from "react-modal";
 import { Calendar, DateObject } from "react-multi-date-picker";
 import { areaList, divisionList, departmentList, smiStageList } from "resources/data";
 import calendar_range_icon from "resources/calendar-range.svg"
@@ -101,12 +102,12 @@ const SearchPage = () => {
     }
 
     return (
-        <div className="page-search">
+        <div className="page-search d-flex flex-column align-items-center">
             <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
             <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Search</p>
             <form className="search-form px-10">
                 <div className="form-section mt-20">
-                    <input type="number" min={1} max={99999} className="input-control fs-18 bordered w-100 px-10 py-2" placeholder="Number (5 digits)" />
+                    <input type="number" min={1} max={99999} className="input-control fs-18 bordered w-100 px-10 py-2" placeholder="SMI Number" />
                 </div>
                 <div className="form-section mt-10">
                     <label className="fs-18 fc-grey">Date Created Range</label>
@@ -212,8 +213,11 @@ const SearchPage = () => {
                                 areaList.map((value, i) => {
                                     return (<li key={i}>
                                         <label className="checkbox-item">{value}
-                                            <input type="radio" name="radio" onChange={() => setImproveArea(value)} />
-                                            <span className="checkmark-radio"></span>
+                                            <input type="radio" name="radio" onChange={() => 
+                                            {
+                                                setImproveArea(value)
+                                                setAreaDropdownOpen(false)
+                                            }} />
                                         </label>
                                     </li>)
                                 })
@@ -232,7 +236,7 @@ const SearchPage = () => {
                     <span className="fs-16 position-absolute r-0 fc-grey f-regular-italic mr-5">Enter any keywords</span>
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
-                    <input className="input-control px-10 py-2 text-ellipsis w-100" type="text" name="division" placeholder="Division" value={division.toString()} disabled />
+                    <input className="input-control px-10 py-2 text-ellipsis w-100" type="text" name="division" placeholder="Division" value={division.join(", ")} disabled />
                     <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDivisionDropdownOpen(!isDivisionDropdownOpen)}>Select</button>
                     <div className={"dropdown-content" + (isDivisionDropdownOpen ? " expand" : "")}>
                         <div className="d-flex justify-content-center py-1">
@@ -255,27 +259,8 @@ const SearchPage = () => {
                     </div>
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
-                    <input className="input-control px-10 py-2 w-100 text-ellipsis" type="text" name="department" placeholder="Department" value={department.toString()} disabled />
+                    <input className="input-control px-10 py-2 w-100 text-ellipsis" type="text" name="department" placeholder="Department" value={department.join(", ")} disabled />
                     <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setDepartDropdownOpen(!isDepartDropdownOpen)}>Select</button>
-                    <div className={"dropdown-content scrollable" + (isDepartDropdownOpen ? " expand" : "")}>
-                        <div className="d-flex justify-content-around py-1">
-                            <p className="fs-20 fc-grey f-regular-italic">Select one that best suits your SMI</p>
-                        </div>
-                        <ul className="dropdown-menus">
-                            {
-                                departmentList.map((value, i) => {
-                                    return (<li key={i}>
-                                        <label className="checkbox-item">{value}
-                                            <input type="checkbox" onChange={(e) => 
-                                                e.target.checked ? setDepartment(addItemToArray(value, department)) : setDepartment(removeItemFromArray(value, department))
-                                            } />
-                                            <span className="checkmark-checkbox"></span>
-                                        </label>
-                                    </li>)
-                                })
-                            }
-                        </ul>
-                    </div>
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
                     <input className="input-control px-10 py-2" type="text" name="stage" placeholder="SMI Stage" value={stage} disabled />
@@ -301,6 +286,29 @@ const SearchPage = () => {
                     <button type="button" className="submit-btn bg-grey" onClick={clearSearchForm}>Clear Search Fields</button>
                 </div>
             </form>
+            <div className={"dropdown-content position-fixed scrollable w-auto h-100vh top-0" + (department.length === 0 ? " border-red" : " border-green") + (isDepartDropdownOpen ? " expand" : "")}>
+                <div className="d-flex justify-content-around py-1">
+                    <p className="fs-20 fc-grey f-regular-italic">Select one that best suits your SMI</p>
+                </div>
+                <ul className="dropdown-menus px-30" style={{height: '85%', overflowY: "auto"}}>
+                    {
+                        departmentList.map((value, i) => {
+                            return (<li key={i}>
+                                <label className="checkbox-item">{value}
+                                    <input type="checkbox" onChange={(e) => 
+                                        e.target.checked ? setDepartment(addItemToArray(value, department)) : setDepartment(removeItemFromArray(value, department))
+                                    } />
+                                    <span className="checkmark-checkbox"></span>
+                                </label>
+                            </li>)
+                        })
+                    }
+                </ul>
+                <div className="d-flex flex-column align-items-center">
+                    <hr />
+                    <button type="button" className={"py-2 fs-20 fc-white w-50" + (department.length === 0 ? " bg-grey" : " bg-green")} onClick={() => setDepartDropdownOpen(false)}>DONE</button>
+                </div>
+            </div>
         </div>
     )
 }

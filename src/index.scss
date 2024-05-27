@@ -195,6 +195,20 @@ p {
   width: 60% !important;
 }
 
+.h-100vh {
+  height: 100vh !important;
+}
+
+.centeredX {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.centeredY {
+  margin-top: 50%;
+  transform: translateY(-50%);
+}
+
 .rotate-90 {
   transform: rotate(90deg);
 }
@@ -205,8 +219,9 @@ p {
 
   li {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0px 10px;
   }
 }
 
@@ -218,7 +233,7 @@ p {
   align-items: center;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -290,8 +305,9 @@ p {
 }
 
 .checkbox-item .checkmark-radio:after {
-  left: 9px;
-  top: 9px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 8px;
   height: 8px;
   border-radius: 50%;

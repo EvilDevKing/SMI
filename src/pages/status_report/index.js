@@ -92,7 +92,7 @@ const StatusReportPage = () => {
                 </div>
             </div>
             <div className="w-100 d-flex justify-content-center mt-50">
-                <p className="w-75 py-10 bg-lightgrey text-center fs-20">SMI Action History</p>
+                <p className="w-50 py-10 bg-lightgrey text-center fs-20">SMI Action History</p>
             </div>
             <div className="d-flex flex-column mt-20">
                 <div className="d-flex">
