@@ -223,7 +223,6 @@ const SearchPage = () => {
                                             <input type="radio" name="radio" onChange={() => 
                                             {
                                                 setImproveArea(value)
-                                                setAreaDropdownOpen(false)
                                             }} />
                                         </label>
                                     </li>)
