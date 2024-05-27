@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from "react"
 import { TypeBold, TypeItalic, TypeUnderline, ListOl, ListUl } from "react-bootstrap-icons"
+import { areaList } from "../../resources/data"
 import "./style.scss"
 
 import calc_icon from "resources/calc.png"
@@ -120,12 +121,12 @@ const CreateNewPage = () => {
                             </div>
                             <ul className="dropdown-menus">
                                 {
-                                    [1,2,3,4,5,6,7,8,9,10,11].map((value, i) => {
+                                    areaList.map((value, i) => {
                                         return (<li key={i} onClick={(e) => {
                                                 setDropdownOpen(false)
-                                                setArea("Example"+value)
+                                                setArea(value)
                                             }}>
-                                            Example{value}
+                                            {value}
                                         </li>)
                                     })
                                 }

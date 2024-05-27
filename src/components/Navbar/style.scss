@@ -60,7 +60,7 @@
         gap: 20px;
         padding: 20px 0px;
         transition: display .3s;
-        background-color: rgba($color: $c-white, $alpha: 0.5);
+        background-color: $c-lightgrey;
         z-index: 10;
 
         &.expand {

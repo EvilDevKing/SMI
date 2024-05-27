@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Calendar, DateObject } from "react-multi-date-picker";
+import { areaList, divisionList, departmentList, smiStageList } from "resources/data";
 import calendar_range_icon from "resources/calendar-range.svg"
 import "react-multi-date-picker/styles/layouts/mobile.css"
 import "./style.scss"
@@ -77,7 +78,7 @@ const SearchPage = () => {
                     <input type="number" min={1} max={99999} className="input-control bordered w-100 px-10 py-2" placeholder="Number (5 digits)" />
                 </div>
                 <div className="form-section mt-10">
-                    <label className="fs-18 fc-grey">Create Date Range</label>
+                    <label className="fs-18 fc-grey">Date Created Range</label>
                     <div className="d-flex">
                         <div className="d-flex w-75 bordered border-darkgrey py-1">
                             <span className="d-flex justify-content-center align-items-center fs-20 w-75 h-100" >{startCreateDate}</span>
@@ -123,10 +124,10 @@ const SearchPage = () => {
                 <div className="form-section mt-10">
                     <label className="fs-18 fc-grey f-regular-italic">Quick Select</label>
                     <div className="button-group">
-                        <button type="button" className="bg-grey">Annual Quarter to Date</button>
-                        <button type="button" className="bg-grey">Annual Year to Date</button>
-                        <button type="button" className="bg-grey">Fiscal Quarter to Date</button>
-                        <button type="button" className="bg-grey">Fiscal Year to Date</button>
+                        <button type="button" className="bg-grey fs-20">Annual Quarter to Date</button>
+                        <button type="button" className="bg-grey fs-20">Annual Year to Date</button>
+                        <button type="button" className="bg-grey fs-20">Fiscal Quarter to Date</button>
+                        <button type="button" className="bg-grey fs-21">Fiscal Year to Date</button>
                     </div>
                 </div>
                 <div className="form-section mt-20">
@@ -178,12 +179,12 @@ const SearchPage = () => {
                         </div>
                         <ul className="dropdown-menus">
                             {
-                                [1,2,3,4,5,6,7,8,9,10,11].map((value, i) => {
+                                areaList.map((value, i) => {
                                     return (<li key={i} onClick={(e) => {
                                             setAreaDropdownOpen(false)
-                                            setImproveArea("Example"+value)
+                                            setImproveArea(value)
                                         }}>
-                                        Example{value}
+                                        {value}
                                     </li>)
                                 })
                             }
@@ -210,12 +211,12 @@ const SearchPage = () => {
                         </div>
                         <ul className="dropdown-menus">
                             {
-                                [1,2,3,4,5,6,7,8,9,10,11].map((value, i) => {
+                                divisionList.map((value, i) => {
                                     return (<li key={i} onClick={(e) => {
                                             setDivisionDropdownOpen(false)
-                                            setDivision("Example"+value)
+                                            setDivision(value)
                                         }}>
-                                        Example{value}
+                                        {value}
                                     </li>)
                                 })
                             }
@@ -232,12 +233,12 @@ const SearchPage = () => {
                         </div>
                         <ul className="dropdown-menus">
                             {
-                                [1,2,3,4,5,6,7,8,9,10,11].map((value, i) => {
+                                departmentList.map((value, i) => {
                                     return (<li key={i} onClick={(e) => {
                                             setDepartDropdownOpen(false)
-                                            setDepartment("Example"+value)
+                                            setDepartment(value)
                                         }}>
-                                        Example{value}
+                                        {value}
                                     </li>)
                                 })
                             }
@@ -248,18 +249,15 @@ const SearchPage = () => {
                     <input className="input-control px-10 py-2" type="text" name="stage" placeholder="SMI Stage" value={stage} disabled />
                     <button type="button" className="dropdown-menu-btn f-regular-italic mr-10" onClick={() => setStageDropdownOpen(!isStageDropdownOpen)}>Select</button>
                     <div className={"dropdown-content" + (isStageDropdownOpen ? " expand" : "")}>
-                        <div className="d-flex justify-content-around py-1">
-                            <button type="button" className="f-regular-italic bg-grey">Tab twice to Select</button>
-                            <p className="fs-12 fc-grey f-regular-italic">Select one that best suits your SMI</p>
-                        </div>
+                        <div className="d-flex justify-content-around bg-lightgrey py-3"></div>
                         <ul className="dropdown-menus">
                             {
-                                [1,2,3,4,5,6,7,8,9,10,11].map((value, i) => {
+                                smiStageList.map((value, i) => {
                                     return (<li key={i} onClick={(e) => {
                                             setStageDropdownOpen(false)
-                                            setStage("Example"+value)
+                                            setStage(value)
                                         }}>
-                                        Example{value}
+                                        {value}
                                     </li>)
                                 })
                             }
