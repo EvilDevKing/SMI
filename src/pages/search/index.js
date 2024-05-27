@@ -26,7 +26,23 @@ const SearchPage = () => {
     const [startModifyDate, setStartModifyDate] = useState('__ / __ / __')
     const [endModifyDate, setEndModifyDate] = useState('__ / __ / __')
 
-    function isEmpty(obj) {
+    const clearSearchForm = () => {
+        setSmiTitle('')
+        setOwner('')
+        setOrigin('')
+        setExtraOrigins('')
+        setImproveArea('')
+        setDescription('')
+        setDivision([])
+        setDepartment([])
+        setStage('')
+        setStartCreateDate('__ / __ / __')
+        setEndCreateDate('__ / __ / __')
+        setStartModifyDate('__ / __ / __')
+        setEndModifyDate('__ / __ / __')
+    }
+
+    const isEmpty = (obj) => {
         for (const prop in obj) {
           if (Object.hasOwn(obj, prop)) {
             return false;
@@ -282,7 +298,7 @@ const SearchPage = () => {
                 </div>
                 <div className="form-section d-flex justify-content-around mt-20">
                     <button type="button" className="submit-btn bg-prim" onClick={() => window.location.href = "/searchresult"}>SEARCH</button>
-                    <button type="button" className="submit-btn bg-grey">Clear Search Fields</button>
+                    <button type="button" className="submit-btn bg-grey" onClick={clearSearchForm}>Clear Search Fields</button>
                 </div>
             </form>
         </div>
