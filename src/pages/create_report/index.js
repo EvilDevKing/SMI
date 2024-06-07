@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import DataTable from "react-data-table-component"
+import { Arrow90degLeft } from "react-bootstrap-icons"
 import { saveAs } from "file-saver"
 import { utils, write, read } from "xlsx"
 
@@ -124,24 +125,24 @@ const CreateReportPage = () => {
         <div className="page-report px-10">
             <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
             <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Report</p>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column align-items-start">
                 <p className="f-bold">Search Query:</p>
-                <div className="dash-border">
+                <div className="dash-border w-auto">
                     <div className="d-flex fs-14">
-                        <span className="f-bold">Field1:</span>
-                        <span className="ml-10">Data</span>
+                        <span className="f-bold">Division:</span>
+                        <span className="ml-10">BLA</span>
                     </div>
                     <div className="d-flex fs-14">
-                        <span className="f-bold">Field2:</span>
-                        <span className="ml-10">Data</span>
+                        <span className="f-bold">Improvement Area:</span>
+                        <span className="ml-10">Automation</span>
                     </div>
                     <div className="d-flex fs-14">
-                        <span className="f-bold">Field3:</span>
-                        <span className="ml-10">Data</span>
+                        <span className="f-bold">Originator:</span>
+                        <span className="ml-10">Bob Rickles</span>
                     </div>
                     <div className="d-flex fs-14">
-                        <span className="f-bold">Field4:</span>
-                        <span className="ml-10">Data</span>
+                        <span className="f-bold">Additional Originators:</span>
+                        <span className="ml-10">Agent 07042</span>
                     </div>
                 </div>
             </div>
@@ -164,7 +165,7 @@ const CreateReportPage = () => {
                 </div>
             </div>
             <div className="d-flex justify-content-center mt-30">
-                <button className="search-btn">REVISE SEARCH</button>
+                <button className="search-btn"><Arrow90degLeft className="fc-primary fs-20 mr-10" />REVISE SEARCH</button>
             </div>
         </div>
     )

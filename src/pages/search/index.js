@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import ReactModal from "react-modal";
+import React, {useState} from "react";
 import { Calendar, DateObject } from "react-multi-date-picker";
 import { areaList, divisionList, departmentList, smiStageList } from "resources/data";
 import calendar_range_icon from "resources/calendar-range.svg"
@@ -107,7 +106,7 @@ const SearchPage = () => {
             <p className="w-100 f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Search</p>
             <form className="search-form w-100 px-10">
                 <div className="form-section mt-20">
-                    <input type="number" min={1} max={99999} className="input-control fs-18 bordered w-100 px-10 py-2" placeholder="SMI Number" />
+                    <input type="number" min={1} max={99999} className="input-control fs-20 bordered w-100 px-10 py-2" placeholder="SMI Number #" />
                 </div>
                 <div className="form-section mt-10">
                     <label className="fs-18 fc-grey">Date Created Range</label>
@@ -154,12 +153,12 @@ const SearchPage = () => {
                     }
                 </div>
                 <div className="form-section mt-10">
-                    <label className="fs-18 fc-grey f-regular-italic">Quick Select</label>
+                    <label className="fs-18 fc-grey f-regular-italic">Quick Select (time to date)</label>
                     <div className="button-group">
-                        <button type="button" className="bg-grey fs-18">Annual Quarter to Date</button>
-                        <button type="button" className="bg-grey fs-18">Annual Year to Date</button>
-                        <button type="button" className="bg-grey fs-18">Fiscal Quarter to Date</button>
-                        <button type="button" className="bg-grey fs-18">Fiscal Year to Date</button>
+                        <button type="button" className="bg-grey fs-18">Annual Quarter</button>
+                        <button type="button" className="bg-grey fs-18">Annual Year</button>
+                        <button type="button" className="bg-grey fs-18">Fiscal Quarter</button>
+                        <button type="button" className="bg-grey fs-18">Fiscal Year</button>
                     </div>
                 </div>
                 <div className="form-section mt-20">
@@ -197,7 +196,7 @@ const SearchPage = () => {
                         className="input-control px-10 w-100 py-2"
                         type="text"
                         name="extra_origins"
-                        placeholder="Additional Originator(s)"
+                        placeholder="Additional Originator(s),"
                         value={extra_origins}
                         onChange={(e) => setExtraOrigins(e.target.value)} />
                 </div>
@@ -229,8 +228,8 @@ const SearchPage = () => {
                                 })
                             }
                         </ul>
-                        <div className="d-flex flex-column align-items-center">
-                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (improve_area === "" ? " bg-grey" : " bg-green")} onClick={() => setAreaDropdownOpen(false)}>DONE</button>
+                        <div className="d-flex flex-column align-items-center py-3">
+                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (improve_area === "" ? " bg-grey" : " bg-primary")} onClick={() => setAreaDropdownOpen(false)}>DONE</button>
                         </div>
                     </div>
                 </div>
@@ -242,7 +241,7 @@ const SearchPage = () => {
                         placeholder="Description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)} />
-                    <span className="fs-16 position-absolute r-0 fc-grey f-regular-italic mr-5">Enter any keywords</span>
+                    <span className="fs-16 position-absolute r-0 fc-grey f-regular-italic mr-5">Enter any keywords &nbsp; &nbsp; &nbsp; &nbsp;</span>
                 </div>
                 <div className={"form-section bordered mt-1 d-flex align-items-center"}>
                     <input className="input-control px-10 py-2 text-ellipsis w-100" type="text" name="division" placeholder="Division" value={division.join(", ")} disabled />
@@ -272,8 +271,8 @@ const SearchPage = () => {
                                 })
                             }
                         </ul>
-                        <div className="d-flex flex-column align-items-center">
-                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (division.length === 0 ? " bg-grey" : " bg-green")} onClick={() => setDivisionDropdownOpen(false)}>DONE</button>
+                        <div className="d-flex flex-column align-items-center py-3">
+                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (division.length === 0 ? " bg-grey" : " bg-primary")} onClick={() => setDivisionDropdownOpen(false)}>DONE</button>
                         </div>
                     </div>
                 </div>
@@ -305,8 +304,8 @@ const SearchPage = () => {
                                 })
                             }
                         </ul>
-                        <div className="d-flex flex-column align-items-center">
-                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (stage === "" ? " bg-grey" : " bg-green")} onClick={() => setStageDropdownOpen(false)}>DONE</button>
+                        <div className="d-flex flex-column align-items-center py-3">
+                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (stage === "" ? " bg-grey" : " bg-primary")} onClick={() => setStageDropdownOpen(false)}>DONE</button>
                         </div>
                     </div>
                 </div>
@@ -317,8 +316,8 @@ const SearchPage = () => {
             </form>
             <div className={"dropdown-content position-fixed scrollable w-auto h-100vh top-0" + (department.length === 0 ? " border-red" : " border-green") + (isDepartDropdownOpen ? " expand" : "")}>
                 <div className="d-flex justify-content-around py-1">
-                    <p className="fs-20 fc-grey f-regular-italic">Select one that best suits your SMI</p>
-                </div>
+                    <p className="fs-18 fc-grey f-regular-italic">Choose the Departments to add to this report</p>
+                </div> 
                 <ul className="dropdown-menus px-30" style={{height: '85%', overflowY: "auto"}}>
                     {
                         departmentList.map((value, i) => {
@@ -335,7 +334,7 @@ const SearchPage = () => {
                 </ul>
                 <div className="d-flex flex-column align-items-center">
                     <hr />
-                    <button type="button" className={"py-2 fs-20 fc-white w-50" + (department.length === 0 ? " bg-grey" : " bg-green")} onClick={() => setDepartDropdownOpen(false)}>DONE</button>
+                    <button type="button" className={"py-2 fs-20 fc-white w-50" + (department.length === 0 ? " bg-grey" : " bg-primary")} onClick={() => setDepartDropdownOpen(false)}>DONE</button>
                 </div>
             </div>
         </div>

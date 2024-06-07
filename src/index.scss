@@ -18,6 +18,9 @@ p {
 .fc-red {
   color: $c-red;
 }
+.fc-orange {
+  color: $c-orange;
+}
 .fc-lightgrey {
   color: $c-lightgrey;
 }
@@ -312,4 +315,9 @@ p {
   height: 8px;
   border-radius: 50%;
   background-color: $c-white;
+}
+
+.checkbox-item:has(input:checked) {
+  background-color: $c-primary;
+  color: $c-black;
 }

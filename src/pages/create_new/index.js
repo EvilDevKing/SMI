@@ -89,6 +89,14 @@ const CreateNewPage = () => {
         <div className="page-new px-10">
             <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
             <p className="f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Create New</p>
+            <div className="d-flex justify-content-center w-100 p-1 mt-1">
+                <div className="d-flex flex-column align-items-start dash-border w-auto py-1 px-3">
+                    <p className="f-regular-italic fc-grey">Required fields are outlined in <span className="fc-red">RED</span></p>
+                    <p className="f-regular-italic fc-grey">Completed fields are outlined in <span className="fc-green">GREEN</span></p>
+                    <p className="f-regular-italic fc-grey">Suggested fields are outlined in <span className="fc-black">BLACK</span></p>
+                </div>
+            </div>
+            <hr className="bordered-1 border-black mt-1"/>
             <form className="main-form mt-20">
                 <div className="mt-2">
                     <div className={"form-section" + (smi_title==="" ? " border-red" : " border-green")}>
@@ -107,13 +115,13 @@ const CreateNewPage = () => {
                             className="input-control px-10 py-2"
                             type="text"
                             name="origins"
-                            placeholder="Additional Originator(s)"
+                            placeholder="Additional Originator(s),"
                             value={origins}
                             onChange={(e) => setOrigins(e.target.value)} />
-                        <span className="fs-16 position-absolute r-0 fc-grey f-regular-italic mr-5">(Use comma between names)</span>
+                        <span className="fs-9 position-absolute r-0 fc-grey f-regular-italic mr-5">(Use comma between names)</span>
                     </div>
                 </div>
-                <div className="mt-2">
+                <div className="mt-2"> 
                     <div className={"form-section" + (owner==="" ? " border-red" : " border-green")}>
                         <input
                             className="input-control px-10 py-2"
@@ -243,7 +251,7 @@ const CreateNewPage = () => {
                     <div className={"form-section d-flex flex-column p-1" + (cost_description==="" ? " border-red" : " border-green")}>
                         <div className="d-flex justify-content-between">
                             <p className="fc-grey fs-18">Detailed Cost Savings Calculation</p>
-                            <button type="button" className="border-none bg-white" onClick={openCalcModal}><img className="calc-img" src={calc_icon} alt="" /></button>
+                            <button type="button" className="border-none bg-white" onClick={openCalcModal}><img className="calc-img" src={calc_icon} alt="calculator" /></button>
                         </div>
                         <div className="px-1">
                             <div className="d-flex">
@@ -271,7 +279,7 @@ const CreateNewPage = () => {
                     </div>
                     <p className="w-100 text-center fs-16 fc-darkgrey f-regular-italic mt-10">
                     {
-                        isSubmitAvailable ? "You will receive an email confirming this has been posted." : "This button will turn blue when the form is complete."
+                        isSubmitAvailable ? "You will receive an email confirming this has been posted." : "This button will turn Bobrick blue when the form is complete."
                     }
                     </p>
                 </div>
