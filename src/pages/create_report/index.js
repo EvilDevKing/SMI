@@ -104,7 +104,7 @@ const CreateReportPage = () => {
     const customStyles = {
         headCells: {
             style: {
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: 'bold'
             },
         },
