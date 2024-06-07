@@ -4,7 +4,7 @@ import { TypeBold, TypeItalic, TypeUnderline, ListOl, ListUl } from "react-boots
 import "./style.scss"
 
 const StatusReportPage = () => {
-    const [isStageDropdownOpen, setStageDropdownOpen] = useState(false)
+    // const [isStageDropdownOpen, setStageDropdownOpen] = useState(false)
     const [stage, setStage] = useState('')
     const [stageUpdateNote, setStageUpdateNote] = useState('')
     const [isTypeBold, setTypeBold] = useState(false)
@@ -107,9 +107,9 @@ const StatusReportPage = () => {
                 </div>
             </div>
             <div className="w-100 d-flex justify-content-center mt-30">
-                <p className="w-50 py-10 bg-lightgrey text-center fs-20" tabIndex={0} onClick={() => setStageDropdownOpen(!isStageDropdownOpen)}>Change SMI Status</p>
+                <p className="w-50 py-10 bg-lightgrey text-center fs-20">Change SMI Status</p>
             </div>
-            <div className={"d-flex flex-column align-items-center" + (isStageDropdownOpen ? "" : " d-none")}>
+            <div className={"d-flex flex-column align-items-center"}>
                 <div className="d-flex flex-column w-75 bordered-1 border-grey mt-20">
                     <div className="d-flex justify-content-around bg-lightgrey py-3 w-100"></div>
                     <ul className="menus w-100">
@@ -161,7 +161,7 @@ const StatusReportPage = () => {
                     </p>
                 </div>
                 <div className="d-flex justify-content-center align-items-center w-100">
-                    <button type="button" className="update-btn" onClick={() => setStageDropdownOpen(false)}>Update</button>
+                    <button type="button" className="update-btn">Update</button>
                 </div>
             </div>
             <div className="w-100 d-flex justify-content-center mt-30">
