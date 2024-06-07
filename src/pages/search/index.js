@@ -101,7 +101,7 @@ const SearchPage = () => {
     }
 
     return (
-        <div className="page-search d-flex flex-column align-items-center px-10">
+        <div className={"page-search d-flex flex-column align-items-center px-10" + (isAreaDropdownOpen || isDivisionDropdownOpen || isStageDropdownOpen ? " h-105" : "")}>
             <p className="w-100 fs-20 fc-primary f-bold text-center">Suggested Methods Improvement (SMI)</p>
             <p className="w-100 f-bold fs-20 fc-primary text-center mt-20 title-border py-1">Search</p>
             <form className="search-form w-100 px-10">
@@ -223,6 +223,7 @@ const SearchPage = () => {
                                             {
                                                 setImproveArea(value)
                                             }} />
+                                            <span className="checkmark-radio"></span>
                                         </label>
                                     </li>)
                                 })
@@ -314,7 +315,7 @@ const SearchPage = () => {
                     <button type="button" className="submit-btn bg-grey" onClick={clearSearchForm}>Clear Search Fields</button>
                 </div>
             </form>
-            <div className={"dropdown-content position-fixed scrollable w-auto h-100vh top-0" + (department.length === 0 ? " border-red" : " border-green") + (isDepartDropdownOpen ? " expand" : "")}>
+            <div className={"dropdown-content position-fixed scrollable w-auto h-90vh top-0 mt-5vh" + (department.length === 0 ? " border-red" : " border-green") + (isDepartDropdownOpen ? " expand" : "")}>
                 <div className="d-flex justify-content-around py-1">
                     <p className="fs-18 fc-grey f-regular-italic">Choose the Departments to add to this report</p>
                 </div> 

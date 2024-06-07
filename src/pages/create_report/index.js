@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react"
 import DataTable from "react-data-table-component"
-import { Arrow90degLeft } from "react-bootstrap-icons"
 import { saveAs } from "file-saver"
 import { utils, write, read } from "xlsx"
+import ArrowReturn from "resources/arrow-return.png"
 
 import "./style.scss"
 
@@ -168,7 +168,7 @@ const CreateReportPage = () => {
                 </div>
             </div>
             <div className="d-flex justify-content-center mt-30">
-                <button className="search-btn"><Arrow90degLeft className="fc-primary fs-20 mr-10" />REVISE SEARCH</button>
+                <button className="search-btn d-flex justify-content-center align-items-center"><img src={ArrowReturn} alt="" className="return-icon" />REVISE SEARCH</button>
             </div>
         </div>
     )
