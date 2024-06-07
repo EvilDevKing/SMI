@@ -31,6 +31,15 @@
         border: 1px solid $c-primary;
         background-color: $c-white;
         font-size: 20px;
+        transition: .3s;
+
+        &:hover {
+            background-color: $c-primary;
+            color: $c-white;
+        }
+        &:active {
+            background-color: rgba($color: $c-primary, $alpha: 0.8);
+        }
     }
 
     textarea {
