@@ -19,7 +19,10 @@ const fetchData = async () => {
             {
                 name: cols[i].name,
                 selector: row => row[cols[i].key],
-                grow: cols[i].key === "Description" ? 2 : 0
+                grow: cols[i].key === "Description" ? 2 : 0,
+                style: {
+                    color: i === 0 ? "#00aaff" : "black"
+                }
             }
         )
     }
