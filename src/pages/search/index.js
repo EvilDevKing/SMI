@@ -230,7 +230,7 @@ const SearchPage = () => {
                             }
                         </ul>
                         <div className="d-flex flex-column align-items-center py-3">
-                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (improve_area === "" ? " bg-grey" : " bg-primary")} onClick={() => setAreaDropdownOpen(false)}>DONE</button>
+                            <button type="button" className={"py-1 fs-18 fc-white w-50" + (improve_area === "" ? " bg-grey" : " bg-primary")} onClick={() => setAreaDropdownOpen(false)}>DONE</button>
                         </div>
                     </div>
                 </div>
@@ -273,7 +273,7 @@ const SearchPage = () => {
                             }
                         </ul>
                         <div className="d-flex flex-column align-items-center py-3">
-                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (division.length === 0 ? " bg-grey" : " bg-primary")} onClick={() => setDivisionDropdownOpen(false)}>DONE</button>
+                            <button type="button" className={"py-1 fs-18 fc-white w-50" + (division.length === 0 ? " bg-grey" : " bg-primary")} onClick={() => setDivisionDropdownOpen(false)}>DONE</button>
                         </div>
                     </div>
                 </div>
@@ -306,7 +306,7 @@ const SearchPage = () => {
                             }
                         </ul>
                         <div className="d-flex flex-column align-items-center py-3">
-                            <button type="button" className={"py-2 fs-20 fc-white w-50" + (stage === "" ? " bg-grey" : " bg-primary")} onClick={() => setStageDropdownOpen(false)}>DONE</button>
+                            <button type="button" className={"py-1 fs-18 fc-white w-50" + (stage === "" ? " bg-grey" : " bg-primary")} onClick={() => setStageDropdownOpen(false)}>DONE</button>
                         </div>
                     </div>
                 </div>
@@ -335,7 +335,7 @@ const SearchPage = () => {
                 </ul>
                 <div className="d-flex flex-column align-items-center">
                     <hr />
-                    <button type="button" className={"py-2 fs-20 fc-white w-50" + (department.length === 0 ? " bg-grey" : " bg-primary")} onClick={() => setDepartDropdownOpen(false)}>DONE</button>
+                    <button type="button" className={"py-1 fs-18 fc-white w-50" + (department.length === 0 ? " bg-grey" : " bg-primary")} onClick={() => setDepartDropdownOpen(false)}>DONE</button>
                 </div>
             </div>
         </div>
