@@ -144,8 +144,8 @@ const SearchPage = () => {
     const setFiscalYearDate = (e) => {
         setQuickButtonClicked(true)
         let today = new Date()
-        setStartCreateDate('10/31/'+(today.getFullYear()-2000))
-        setEndCreateDate('11/01/'+(today.getFullYear()-2000))
+        setStartCreateDate('11/01/'+(today.getFullYear()-2000-1))
+        setEndCreateDate('10/31/'+(today.getFullYear()-2000))
     }
 
     const applyDate = (date, format, flag) => {
