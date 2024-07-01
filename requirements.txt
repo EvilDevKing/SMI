@@ -1,0 +1,6 @@
+1. change the color of the hover for the buttons. it's an ugly bluish gray now. let's change it to gray
+2. create a report page should have links.
+2b. the headers should sort too
+    for that area, let's re-center the status update notes but keep it attached and then move Change SMI Status to the same setup
+3. i change the font size to be bigger. remember, an app for old people
+4. let's make the Change SMI Status area options smaller to match the rest of the fields
