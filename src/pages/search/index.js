@@ -179,7 +179,7 @@ const SearchPage = () => {
         let endDate = new Date(end)
         let startDateObject = {}, endDateObject = {}
         if (isQuickButtonClicked) {
-            startDateObject = new DateObject().setDay(startDate.getDate()).setMonth(startDate.getMonth()+1)
+            startDateObject = new DateObject().setYear(startDate.getFullYear()).setDay(startDate.getDate()).setMonth(startDate.getMonth()+1)
             endDateObject = new DateObject().setDay(endDate.getDate())
         } else {
             startDateObject = new DateObject().setDay(startDate.getDate())
